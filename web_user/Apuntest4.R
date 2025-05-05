@@ -26,7 +26,7 @@ summary(mod)
 #     
 #     
 #     El Coesficneinte de determinación te dice como de bueno es el modelo
-#     Se mira en "R-squared:  0.8268"
+#     Se mira en "R-squared:  0.8268"  (82.68%)
 #
 #     El Estadístico F nos dice que al menos un regresor significativo  
 #     Se ve en: "69.21 on 2 and 29 DF", el pvalor es 2.29 y nuestro valor es 69.21
@@ -69,7 +69,26 @@ confint(mod)
 
 
 #Vamos a PREDECIR:
+#Hay 2 opciones: media o nueva observación
+#Media es predicción para muchos individuos
+#Nueva observación es para una única observación
 
 
-cati = data.frame( wt = 700 , hp= 100 )
-predict(mod, cati)
+
+#Nueva observación
+prediccion = data.frame( wt = 2.52 , hp= 100 )
+predict(mod, prediccion, interval = 'prediction') #nueva observación
+predict(mod, prediccion, interval = 'confidence') #media
+
+
+#(Aquí lo he hecho con una regresión múltiple, pero no cae
+#sencillamente en vez de 2 variables en el data frame habrá una y ya)
+
+#Media
+
+
+
+source('https://raw.githubusercontent.com/gonzalovozpito/Regresion/refs/heads/main/web_user/Apuntest4.R')
+
+
+cat(readLines("https://raw.githubusercontent.com/gonzalovozpito/Regresion/refs/heads/main/web_user/Apuntest4.R"), sep = "\n")
